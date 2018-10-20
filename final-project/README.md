@@ -18,7 +18,7 @@
 - CORs support
 - Test the endpoint
 
-### The Starter JavaScript Files
+### The JavaScript Starter Files
 - package.json
 - webpack.config.js
 - index.js            
@@ -26,6 +26,8 @@
     - WP Site URL
 
 ### Getting and Rendering Posts from WP API
+- Get list of posts
+- Render to the page
 
 ### Setting up Decoupled Authentication
 - Authentication class 
