@@ -1,40 +1,48 @@
-- Overview of Authentication Types
-   - What is Authentication 
-   - When would you need this 
-   - Types of Authentication 
-      - Basics
-      - JWT Auth
-      - OAuth
+### Overview of Authentication Types
+- What is Authentication 
+- When would you need this 
+- Types of Authentication 
+    - Basics
+    - JWT Auth
+    - OAuth
 
-- Example of what we want to build
-    - Authentication
-    - Adding, Editing, Deleting
+### Example of what we want to build
 
-- Setting Up WordPress JWT Auth Plugin
-    - Install the plugin
-    - .htaccess
-    - Secret Key
-    - CORs support
-    - Test the endpoint
+- Authentication
+- Adding, Editing, Deleting
 
-- The Starter JavaScript Code
+### Setting Up WordPress JWT Auth Plugin
+- Install the plugin
+- .htaccess
+- Secret Key
+- CORs support
+- Test the endpoint
 
-- Setting up Decoupled Authentication
-   - Authentication class 
-   - initLogin, onLogin, initLogout, onLogout
-   - main init with logic
-   - 3 packages 
-      - fetch / axios 
-      - form URL encode 
-      - Cookies JS 
+### The Starter JavaScript Files
+- package.json
+- webpack.config.js
+- index.js            
+- config.js
+    - WP Site URL
 
-- Adding Add Post
+### Getting and Rendering Posts from WP API
 
-- Adding Edit Post
+### Setting up Decoupled Authentication
+- Authentication class 
+- initLogin, onLogin, initLogout, onLogout
+- main init with logic
+- 3 packages 
+    - fetch / axios 
+    - form URL encode 
+    - Cookies JS 
 
-- Adding Delete Post
+### Adding Add Post
 
-- Ideas for Next Practices
+### Adding Edit Post
+
+### Adding Delete Post
+
+### Ideas for Next Practices
 
 
 Is port is running Find:
