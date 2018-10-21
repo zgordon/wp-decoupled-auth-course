@@ -4,7 +4,7 @@ import Posts from "./Posts";
 import Delete from "./Delete";
 
 // Import configs
-import { getEl, rest_url, logged_in, mainId, backBtnId } from "../config";
+import { getEl, rest_url, state, mainId, backBtnId, setState } from "../config";
 
 /**
  * Post - Handles the displaying of single post views
@@ -22,31 +22,26 @@ export default class Post {
    * @memberof Posts
    */
   static render() {
-    const {
-      id,
-      title: { rendered: title },
-      content: { rendered: content }
-    } = this;
-
+    console.log(state.post);
     // Setup the post article element
     const article = document.createElement("article");
     article.classList.add("post");
-    // article.dataset.id = id;
     article.innerHTML = `
       <p><a id="${backBtnId}" href="#">&lt; Back to Posts</a></p>
-      <h1 class="entry-title">${title}</h1>
-      <div class="entry-content">${content}</div>
+      <h1 class="entry-title">${state.post.title.rendered}</h1>
+      <div class="entry-content">${state.post.content.rendered}</div>
     `;
     // Clear the posts from the page
     Posts.clear();
 
     // Attach event listeners to back button
-    article
-      .querySelector(`#${backBtnId}`)
-      .addEventListener("click", Posts.init, false);
+    article.querySelector(`#${backBtnId}`).addEventListener("click", () => {
+      setState("post", null);
+      Posts.render();
+    });
 
     // If logged in, display edit and delete links
-    if (logged_in) {
+    if (state.loggedIn) {
       article.append(
         Post.getEditLink.call(this),
         Post.getDeleteLink.call(this)
@@ -71,7 +66,10 @@ export default class Post {
     link.classList.add("edit");
     link.innerText = "Edit";
     // Add event listener for the post edit link
-    link.addEventListener("click", Editor.loadPost.bind(this));
+    link.addEventListener("click", () => {
+      setState("editorPostId", this.id);
+      Editor.loadPost();
+    });
 
     // Return the link element
     return link;

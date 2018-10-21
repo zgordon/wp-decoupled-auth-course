@@ -1,3 +1,23 @@
+// Set state object with values that are changed programatically
+const state = {
+  loggedIn: false,
+  siteName: "Site Name",
+  siteDescription: "Just another decoupled site",
+  posts: null,
+  post: null,
+  editorPostId: null
+};
+/**
+ * setSiteName - Setter for the site name
+ *
+ * @param {string} value - New site name
+ */
+const setState = (toSet, newValue) => {
+  state[toSet] = newValue;
+  console.log(state);
+};
+export { state, setState };
+
 export /**
  * getEl - Helper function for getting elements based on ID
  *
@@ -10,6 +30,8 @@ export const wrapperId = "content";
 export const primaryId = "primary";
 export const sidebarId = "secondary";
 export const mainId = "main";
+export const siteNameId = "site-title";
+export const siteDescriptionId = "site-description";
 
 // UI Component IDs
 export const backBtnId = "back-to-post";
@@ -27,23 +49,3 @@ export const editorBtn = "save-post";
 // Authentication
 export const rest_url = "https://decoupledauth.local/wp-json/";
 export const tokenCookie = "jwt-token";
-
-// State if user is logged in
-let logged_in = false;
-/**
- * setLoggedin - Setter function for logged_in
- *
- * @param {boolean} value - New state for if user is logged in
- */
-const setLoggedIn = value => (logged_in = value);
-export { logged_in, setLoggedIn };
-
-// Editor State
-let editorPostId = null;
-/**
- * setEditorPostId - Setter function for editorPostId
- *
- * @param {(string|int)} value - ID for current post being edited
- */
-const setEditorPostId = value => (editorPostId = value);
-export { editorPostId, setEditorPostId };

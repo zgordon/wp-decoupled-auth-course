@@ -18,7 +18,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-.site-title {
+#site-title {
     font-family: "Roboto Slab", sans-serif;
 }
 
@@ -61,7 +61,7 @@ ul {
     display: none
 }
 
-.site-title {
+#site-title {
     font-size: 2rem;
     font-weight: bold;
     margin: 0 0 1rem 0;

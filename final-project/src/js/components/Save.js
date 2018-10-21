@@ -10,13 +10,12 @@ import Editor from "./Editor";
 // Import configs
 import {
   getEl,
-  editorBtn,
-  editorFormId,
   editorTitleId,
   editorContentId,
   tokenCookie,
   rest_url,
-  editorPostId
+  state,
+  setState
 } from "../config";
 
 // Setup token for authorized calls
@@ -43,7 +42,7 @@ export default class Save {
     // Setup post object to save with updated content
     const post = {
       // Get the post id
-      id: editorPostId || null,
+      id: state.editorPostId || null,
       // Get the editor title
       title: getEl(editorTitleId).value,
       // Get the editor content
@@ -63,7 +62,7 @@ export default class Save {
 
     // Check if saving new post or updating existing post
     // Based off of having an existing post id
-    if (!editorPostId) {
+    if (!state.editorPostId) {
       // Save post
       axios({
         // Setup method
@@ -95,7 +94,7 @@ export default class Save {
         // Set method to put
         method: "put",
         // set the URL with the current post id
-        url: rest_url + "wp/v2/posts/" + editorPostId,
+        url: rest_url + "wp/v2/posts/" + state.editorPostId,
         // Set the post data object to send
         data: post,
         // Set the headers

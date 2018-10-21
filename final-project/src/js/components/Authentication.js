@@ -15,7 +15,7 @@ import {
   getEl,
   tokenCookie,
   rest_url,
-  setLoggedIn,
+  setState,
   logoutBtnId,
   loginBtnId,
   usernameId,
@@ -57,8 +57,8 @@ export default class Authentication {
    * @memberof Authentication
    */
   static onLogin() {
-    // Set the logged_in statis to true
-    setLoggedIn(true);
+    // Set the loggedIn statis to true
+    setState("loggedIn", true);
     // Make sure to remove the login form
     LoginForm.remove();
     // Display the editor
@@ -73,8 +73,8 @@ export default class Authentication {
    * @memberof Authentication
    */
   static onLogout() {
-    // Set the logged_in statis to false
-    setLoggedIn(false);
+    // Set the loggedIn statis to false
+    setState("loggedIn", false);
     // Remove the editor
     Editor.remove();
     // Remove the logout form

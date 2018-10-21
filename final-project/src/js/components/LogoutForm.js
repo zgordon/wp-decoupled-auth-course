@@ -1,11 +1,5 @@
 // Import configs
-import {
-  getEl,
-  logged_in,
-  sidebarId,
-  logoutFormId,
-  logoutBtnId
-} from "../config";
+import { getEl, state, sidebarId, logoutFormId, logoutBtnId } from "../config";
 
 /**
  * LogoutForm - Handles the logout form
@@ -23,7 +17,7 @@ export default class LogoutForm {
    */
   static render() {
     // Make sure logged in and form is not already rendered
-    if (logged_in === false || LogoutForm.isRendered()) {
+    if (state.loggedIn === false || LogoutForm.isRendered()) {
       return;
     }
     // Setup the logout form

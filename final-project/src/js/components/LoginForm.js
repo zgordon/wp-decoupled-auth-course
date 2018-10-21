@@ -1,7 +1,7 @@
 // Import configs
 import {
   getEl,
-  logged_in,
+  state,
   sidebarId,
   loginFormId,
   usernameId,
@@ -24,7 +24,7 @@ export default class LoginForm {
    */
   static render() {
     // Make sure logged out and form is not rendered already
-    if (logged_in === true || this.isRendered()) {
+    if (state.loggedIn === true || this.isRendered()) {
       return;
     }
 

@@ -10,15 +10,14 @@ import {
   getEl,
   rest_url,
   tokenCookie,
-  logged_in,
+  state,
+  setState,
   primaryId,
   mainId,
   editorFormId,
   editorTitleId,
   editorContentId,
-  editorBtn,
-  editorPostId,
-  setEditorPostId
+  editorBtn
 } from "../config";
 
 // Get the token for an authorized request
@@ -40,7 +39,7 @@ export default class Editor {
    */
   static render() {
     // Make sure user is logged in or editor is not already rendered
-    if (logged_in !== true || Editor.isRendered()) {
+    if (state.loggedIn !== true || Editor.isRendered()) {
       return;
     }
 
@@ -76,15 +75,12 @@ export default class Editor {
    * @memberof Editor
    */
   static loadPost(event) {
-    const post = this;
-    // getEl(editorFormId).dataset.postId = post.id;
-    setEditorPostId(post.id);
     // Prevent the form from edit link from submitting
     if (event) event.preventDefault();
 
     // Setup an authenticated request for posts
     axios
-      .get(rest_url + "wp/v2/posts/" + post.id, {
+      .get(rest_url + "wp/v2/posts/" + state.editorPostId, {
         // Set context to edit to get raw post content for editing
         params: {
           context: "edit"
@@ -117,8 +113,6 @@ export default class Editor {
    * @memberof Editor
    */
   static clear() {
-    // Only proceed if the editor is rendered
-    if (!Editor.isRendered()) return;
     // Set the editor title field to empty
     getEl(editorTitleId).value = "";
     // Get the Quill editor
@@ -126,7 +120,7 @@ export default class Editor {
     // Clear the editor content
     editor.root.innerHTML = "";
     // Set the form method back to post
-    setEditorPostId(null);
+    setState("editorPost", null);
   }
   /**
    * remove - Removes the editor from the page
@@ -139,9 +133,9 @@ export default class Editor {
     // Only proceed if the editor is rendered
     if (!Editor.isRendered()) return;
     // Remove the edit form
-    // getEl(editorFormId).remove();
     getEl(editorFormId).outerHTML = "";
-    // getEl(editorBtn).removeEventListener("click", Save.post);
+    // Set the form method back to post
+    setState("editorPost", null);
   }
   /**
    * isRendered - Checks to see if editor form is rendered on the page

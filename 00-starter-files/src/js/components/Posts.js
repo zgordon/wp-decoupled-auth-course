@@ -1,11 +1,9 @@
 // Import libraries
 import axios from "axios";
-
 // Import components
 import Post from "./Post";
-
 // Import configs
-import { getEl, mainId, backBtnId } from "../config";
+import { getEl, mainId, rest_url } from "../config";
 
 /**
  * Posts - Handles the displaying of posts
@@ -67,15 +65,7 @@ export default class Posts {
       // Attach an event listenr on the post link
       article
         .querySelector(".entry-title a")
-        .addEventListener("click", Post.render, false);
-
-      // If logged in, display edit and delete links
-      if (logged_in) {
-        article.append(
-          Post.getEditLink.call(post),
-          Post.getDeleteLink.call(post)
-        );
-      }
+        .addEventListener("click", Post.render.bind(post), false);
 
       // Append the post to the page
       getEl(mainId).append(article);
