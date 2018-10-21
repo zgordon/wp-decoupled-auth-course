@@ -7,7 +7,7 @@ import Editor from "./Editor";
 import Delete from "./Delete";
 
 // Import configs
-import { getEl, rest_url, state, setState, mainId, backBtnId } from "../config";
+import { getEl, state, setState, mainId, backBtnId } from "../config";
 
 /**
  * Posts - Handles the displaying of posts
@@ -30,7 +30,7 @@ export default class Posts {
     // Make API request with Axios
     axios
       // Set the url to request posts
-      .get(rest_url + "wp/v2/posts", {
+      .get(state.restUrl + "wp/v2/posts", {
         params: {
           // Set number of posts to get
           per_page: 5

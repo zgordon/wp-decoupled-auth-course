@@ -12,14 +12,12 @@ import {
   getEl,
   editorTitleId,
   editorContentId,
-  tokenCookie,
-  rest_url,
   state,
   setState
 } from "../config";
 
 // Setup token for authorized calls
-const token = Cookies.get(tokenCookie);
+const token = Cookies.get(state.tokenCookie);
 
 /**
  * Save - Handles saving post content
@@ -68,7 +66,7 @@ export default class Save {
         // Setup method
         method: "post",
         // Setup rest url
-        url: rest_url + "wp/v2/posts",
+        url: state.restUrl + "wp/v2/posts",
         // Setup the post object to send
         data: post,
         //  Setup headers with auth token
@@ -94,7 +92,7 @@ export default class Save {
         // Set method to put
         method: "put",
         // set the URL with the current post id
-        url: rest_url + "wp/v2/posts/" + state.editorPostId,
+        url: state.restUrl + "wp/v2/posts/" + state.editorPostId,
         // Set the post data object to send
         data: post,
         // Set the headers

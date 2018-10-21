@@ -4,7 +4,7 @@ import Posts from "./Posts";
 import Delete from "./Delete";
 
 // Import configs
-import { getEl, rest_url, state, mainId, backBtnId, setState } from "../config";
+import { getEl, state, mainId, backBtnId, setState } from "../config";
 
 /**
  * Post - Handles the displaying of single post views
@@ -22,7 +22,6 @@ export default class Post {
    * @memberof Posts
    */
   static render() {
-    console.log(state.post);
     // Setup the post article element
     const article = document.createElement("article");
     article.classList.add("post");
@@ -43,8 +42,8 @@ export default class Post {
     // If logged in, display edit and delete links
     if (state.loggedIn) {
       article.append(
-        Post.getEditLink.call(this),
-        Post.getDeleteLink.call(this)
+        Post.getEditLink.call(state.post),
+        Post.getDeleteLink.call(state.post)
       );
     }
 
@@ -94,16 +93,5 @@ export default class Post {
 
     // Return the delete link
     return link;
-  }
-
-  /**
-   * clear - Clears the posts from the main content area
-   *
-   * @static
-   * @memberof Posts
-   */
-  static clear() {
-    // Set the inner html of the main content area to emptu=y==y
-    getEl(mainId).innerHTML = "";
   }
 }

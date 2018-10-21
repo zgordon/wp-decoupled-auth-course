@@ -13,8 +13,7 @@ import Posts from "./Posts.js";
 // Import configs
 import {
   getEl,
-  tokenCookie,
-  rest_url,
+  state,
   setState,
   logoutBtnId,
   loginBtnId,
@@ -37,7 +36,7 @@ export default class Authentication {
    */
   static init() {
     // Check cookie to see if already authenticated
-    if (Cookies.get(tokenCookie) === undefined) {
+    if (Cookies.get(state.tokenCookie) === undefined) {
       // Run logout tasks since not authenticated
       Authentication.onLogout();
       // Setup the login process to be possible
@@ -108,7 +107,7 @@ export default class Authentication {
       axios({
         method: "post",
         // Set the URL to authentication endpoint
-        url: rest_url + "jwt-auth/v1/token",
+        url: state.restUrl + "jwt-auth/v1/token",
         // Make sure form data is encoded properly
         data: formurlencoded(creds),
         // Set the post headers for encoded form data
@@ -120,7 +119,7 @@ export default class Authentication {
           // Check to see response comes back approved
           if (200 === response.status) {
             // Set a secure cookie with the authentication token
-            Cookies.set(tokenCookie, response.data.token, {
+            Cookies.set(state.tokenCookie, response.data.token, {
               expires: 1,
               secure: true
             });
@@ -154,7 +153,7 @@ export default class Authentication {
       // Prevent logout form from submitting
       event.preventDefault();
       // Remove the auth token cookie
-      Cookies.remove(tokenCookie, { secure: true });
+      Cookies.remove(state.tokenCookie, { secure: true });
       // Restart the authentication flow
       Authentication.init();
     });

@@ -8,8 +8,6 @@ import Save from "./Save.js";
 // Import configs
 import {
   getEl,
-  rest_url,
-  tokenCookie,
   state,
   setState,
   primaryId,
@@ -21,7 +19,7 @@ import {
 } from "../config";
 
 // Get the token for an authorized request
-const token = Cookies.get(tokenCookie);
+const token = Cookies.get(state.tokenCookie);
 
 /**
  * Editor - Controls the add / edit post form
@@ -80,7 +78,7 @@ export default class Editor {
 
     // Setup an authenticated request for posts
     axios
-      .get(rest_url + "wp/v2/posts/" + state.editorPostId, {
+      .get(state.restUrl + "wp/v2/posts/" + state.editorPostId, {
         // Set context to edit to get raw post content for editing
         params: {
           context: "edit"

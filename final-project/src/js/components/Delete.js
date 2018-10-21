@@ -8,7 +8,7 @@ import Posts from "./Posts";
 import Editor from "./Editor";
 
 // Import configs
-import { tokenCookie, rest_url } from "../config";
+import { state } from "../config";
 
 /**
  * Delete - Handles the deleting of posts
@@ -28,12 +28,10 @@ export default class Delete {
     // Get the title of post to delete
     const title = event.target.parentElement.querySelector(".entry-title")
       .innerText;
-    // Get the ID of the post to delete
-    // const id = event.target.parentElement.dataset.id;
     // Confirm that user wants to delete post
     const confirm = window.confirm(`Delete Post: "${title}"`);
     // Get the token for making an authenticated request
-    const token = Cookies.get(tokenCookie);
+    const token = Cookies.get(state.tokenCookie);
     // Prevent form from submitting
     event.preventDefault();
 
@@ -44,7 +42,7 @@ export default class Delete {
         // Set method to delete
         method: "delete",
         // Setup the URL for the post to delete
-        url: rest_url + "wp/v2/posts/" + this.id,
+        url: state.restUrl + "wp/v2/posts/" + this.id,
         // Setup headers for authenticated request
         headers: {
           "Content-Type": "application/json",
