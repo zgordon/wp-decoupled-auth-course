@@ -86,7 +86,7 @@ export default class Posts {
       // Attach an event listenr on the post link
       article
         .querySelector(".entry-title a")
-        .addEventListener("click", Post.render, false);
+        .addEventListener("click", Post.render.bind(post), false);
 
       // If logged in, display edit and delete links
       if (logged_in) {

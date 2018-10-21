@@ -1,6 +1,3 @@
-// Import libraries
-import axios from "axios";
-
 // Import components
 import Editor from "./Editor";
 import Posts from "./Posts";

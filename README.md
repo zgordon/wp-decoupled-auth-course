@@ -24,6 +24,8 @@
 - index.js            
 - config.js
     - WP Site URL
+- Post
+    - binding for event handlers
 
 ### Getting and Rendering Posts from WP API
 - Get list of posts
