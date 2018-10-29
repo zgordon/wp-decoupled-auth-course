@@ -6,10 +6,9 @@ import Cookies from "js-cookie";
 import Save from "./Save.js";
 
 // Import configs
+import { state, setState } from "../state";
 import {
   getEl,
-  state,
-  setState,
   primaryId,
   mainId,
   editorFormId,

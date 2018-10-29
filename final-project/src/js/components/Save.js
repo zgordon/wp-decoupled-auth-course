@@ -8,13 +8,8 @@ import Posts from "./Posts";
 import Editor from "./Editor";
 
 // Import configs
-import {
-  getEl,
-  editorTitleId,
-  editorContentId,
-  state,
-  setState
-} from "../config";
+import { state } from "../state";
+import { getEl, editorTitleId, editorContentId } from "../config";
 
 // Setup token for authorized calls
 const token = Cookies.get(state.tokenCookie);

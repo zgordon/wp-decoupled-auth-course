@@ -1,5 +1,6 @@
 // Import configs
-import { getEl, state, sidebarId, logoutFormId, logoutBtnId } from "../config";
+import { state } from "../state";
+import { getEl, sidebarId, logoutFormId, logoutBtnId } from "../config";
 
 /**
  * LogoutForm - Handles the logout form

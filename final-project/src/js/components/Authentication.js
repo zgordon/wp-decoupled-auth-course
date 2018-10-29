@@ -11,10 +11,9 @@ import Notice from "./Notice.js";
 import Posts from "./Posts.js";
 
 // Import configs
+import { state, setState } from "../state";
 import {
   getEl,
-  state,
-  setState,
   logoutBtnId,
   loginBtnId,
   usernameId,
@@ -39,11 +38,13 @@ export default class Authentication {
     if (Cookies.get(state.tokenCookie) === undefined) {
       // Run logout tasks since not authenticated
       Authentication.onLogout();
+      console.log(state.loggedIn);
       // Setup the login process to be possible
       Authentication.initLogin();
     } else {
       // Run login tasks since authenticated
       Authentication.onLogin();
+      console.log(state.loggedIn);
       // Setup the logout process to be possible
       Authentication.initLogout();
     }

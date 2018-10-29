@@ -4,7 +4,8 @@ import Posts from "./Posts";
 import Delete from "./Delete";
 
 // Import configs
-import { getEl, state, mainId, backBtnId, setState } from "../config";
+import { state, setState } from "../state";
+import { getEl, mainId, backBtnId } from "../config";
 
 /**
  * Post - Handles the displaying of single post views

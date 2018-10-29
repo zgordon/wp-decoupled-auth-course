@@ -8,7 +8,7 @@ import Posts from "./Posts";
 import Editor from "./Editor";
 
 // Import configs
-import { state } from "../config";
+import { state } from "../state";
 
 /**
  * Delete - Handles the deleting of posts

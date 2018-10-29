@@ -5,13 +5,8 @@ import axios from "axios";
 import Posts from "./Posts";
 
 // Import configs
-import {
-  getEl,
-  state,
-  siteNameId,
-  siteDescriptionId,
-  setState
-} from "../config";
+import { state, setState } from "../state";
+import { getEl, siteNameId, siteDescriptionId } from "../config";
 
 /**
  * Header - Gets and displays the name and description of the site

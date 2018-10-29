@@ -1,7 +1,7 @@
 // Import configs
+import { state } from "../state";
 import {
   getEl,
-  state,
   sidebarId,
   loginFormId,
   usernameId,

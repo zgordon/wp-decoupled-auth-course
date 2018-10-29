@@ -3,11 +3,10 @@ import axios from "axios";
 
 // Import components
 import Post from "./Post";
-import Editor from "./Editor";
-import Delete from "./Delete";
 
 // Import configs
-import { getEl, state, setState, mainId, backBtnId } from "../config";
+import { state, setState } from "../state";
+import { getEl, mainId } from "../config";
 
 /**
  * Posts - Handles the displaying of posts
