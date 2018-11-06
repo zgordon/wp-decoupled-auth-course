@@ -6,7 +6,7 @@ In this step we will list a single post from the state
 
 Step 1: Setup State & Config
 
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open `src/js/state.js` and add `post` to the state with a default valule of `null`
 - Open `src/js/config.js` and add `export const backBtn = "back-to-post";` to give us an ID for the Back to Posts button we will be creating
 

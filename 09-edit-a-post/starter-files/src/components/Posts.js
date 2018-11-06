@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // Import components
-import { render as Post, editLink } from "./Post";
+import { render as Post } from "./Post";
 
 // Import configs
 import { state, setState } from "../state";
@@ -63,11 +63,6 @@ export function render() {
       // Render single post
       Post();
     });
-
-    // If logged in, display edit link
-    if (state.loggedIn) {
-      article.append(editLink(post));
-    }
 
     // Append the post to the page
     getEl(main).append(article);

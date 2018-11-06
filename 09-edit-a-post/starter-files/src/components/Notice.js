@@ -14,6 +14,7 @@ export function render(type) {
   const messages = {
     saved: "This post has been saved!",
     loggedin: "Welcome! You are logged in!",
+    loggedout: "You are now logged out.",
     updated: "This post has been updated!",
     required: "All fields are required!",
     failed: "This action failed :(",

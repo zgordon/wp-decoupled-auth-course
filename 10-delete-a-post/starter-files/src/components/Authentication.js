@@ -12,7 +12,7 @@ import { render as Editor } from "./Editor.js";
 // Import configs
 import { state, setState } from "../state";
 import { getEl, removeEl } from "../helpers.js";
-import { loginForm, logoutForm, editor } from "../config";
+import { loginForm, logoutForm, editor, username, password } from "../config";
 
 /**
  * Kicks off the authentication process
@@ -44,6 +44,7 @@ export function login() {
   setState("loggedIn", true);
   // Toggle login/logout forms
   removeEl(loginForm);
+  Notice("loggedin");
   LogoutForm();
   // Load editor
   Editor();
@@ -61,6 +62,7 @@ export function logout() {
   setState("loggedIn", false);
   // Toggle login/logout forms
   removeEl(logoutForm);
+  Notice("loggedout");
   LoginForm();
   // Init and render posts
   removeEl(editor);
@@ -79,8 +81,8 @@ export function initLogin() {
     event.preventDefault();
     // Get username and password from form
     const creds = {
-      username: "zgordon",
-      password: "p4ssw0rd"
+      username: getEl(username).value,
+      password: getEl(password).value
     };
     // Make request to authenticate
     axios({

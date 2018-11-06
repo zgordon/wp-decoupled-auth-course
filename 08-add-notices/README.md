@@ -5,7 +5,7 @@ In this step we will add a component for displaying notices
 ## To Do
 
 Step 1: Setup Up and the Config
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Add the following to `config.js` 
 ```
 export const message = "message";
@@ -16,7 +16,7 @@ Step 2: Create Notice.js
 - Import the following:
 ```
 import { wrapper, message as messageEl } from "../config";
-import { getEl, removeEl } from "../helpers";
+import { getEl, createEl, removeEl } from "../helpers";
 ```
 
 Step 3: Create the Notice render() Function

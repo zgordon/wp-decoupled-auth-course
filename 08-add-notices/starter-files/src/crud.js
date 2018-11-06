@@ -3,11 +3,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 // Import components
-import { clear as clearEditor } from "./components./components/Editor";
+import { clear as clearEditor } from "./components/Editor";
 import { init as Posts } from "./components/Posts";
 
 // Import configs
-import { state } from "../state";
+import { state } from "./state";
 
 /**
  * Saves a post

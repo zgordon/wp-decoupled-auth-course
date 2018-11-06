@@ -1,6 +1,6 @@
 // Import configs
 import { wrapper, message as messageEl } from "../config";
-import { getEl, removeEl } from "../helpers";
+import { getEl, createEl, removeEl } from "../helpers";
 
 /**
  * Renders a notice on the page
@@ -22,7 +22,7 @@ export function render(type) {
   };
 
   // Setup the notice markup
-  const message = document.createElement("div");
+  const message = createEl("div");
   message.id = messageEl;
   message.classList.add(type);
   message.innerHTML = `<p>${messages[type]}</p>`;

@@ -5,8 +5,8 @@ In this step we will add a logout form to the site dynamically
 ## To Do
 
 Step 1: Setup the Config and index.html
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
-- Open the `config.js` file and add the following `export const loginForm = "login-form";`
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
+- Open the `config.js` file and add the following `export const logoutForm = "logout-form";`
 
 Step 2: Create the Logout Form
 - Create a file called "Logout.js" inside of "./components"

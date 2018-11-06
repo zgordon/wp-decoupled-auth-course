@@ -6,8 +6,8 @@ In this step we will add a header component to our app that pulls in the site na
 
 Step 1: Setup State
 
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
-- Open `src/state.js` and add siteName and siteDescription to the state
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
+- Open `src/state.js` and add `siteName` and `siteDescription` to the state
 
 
 Step 2: Setup Header.js

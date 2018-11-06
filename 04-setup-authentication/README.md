@@ -6,7 +6,7 @@ In this step we will setup the JWT authentication with WordPress
 
 Step 1: Setup State, Config and index.html
 
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open `src/state.js` and add `token` to the state with a value of "wp-token" and `loggedIn` with a value of `false`
 - Open `src/config.js` and add `export const loginBtn = "login-button";` and `export const loginBtn = "login-button";` for our login and logout buttons
 - Open the `index.html` file and add the following inside the side bar

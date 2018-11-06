@@ -10,7 +10,7 @@ import { render as LoginForm } from "./LoginForm.js";
 // Import configs
 import { state, setState } from "../state";
 import { getEl, removeEl } from "../helpers.js";
-import { loginForm, username, password } from "../config";
+import { loginForm, username, password, logoutBtn } from "../config";
 
 /**
  * Kicks off the authentication process
@@ -42,7 +42,6 @@ export function login() {
   setState("loggedIn", true);
   // Toggle login/logout forms
   removeEl(loginForm);
-  LogoutForm();
   // Init and render posts
   Posts();
 }
@@ -57,7 +56,6 @@ export function logout() {
   setState("loggedIn", false);
   // Toggle login/logout forms
   removeEl(logoutForm);
-  LoginForm();
   Posts();
 }
 
@@ -117,7 +115,7 @@ export function initLogin() {
  */
 export function initLogout() {
   // Setup event listeners for logout form
-  getEl(logoutForm).addEventListener("submit", event => {
+  getEl(logoutBtn).addEventListener("click", event => {
     // Prevent logout form from submitting
     event.preventDefault();
     // Remove the auth token cookie

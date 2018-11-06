@@ -6,7 +6,7 @@ In this step we will list posts using an API call
 
 Step 1: Setup State
 
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open `src/state.js` and add `posts` to the state with a default valule of `null`
 
 Step 2: Setup Posts.js

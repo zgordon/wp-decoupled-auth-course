@@ -5,7 +5,7 @@ In this step we will add a from to add new posts with
 ## To Do
 
 Step 1: Setup the Config and index.html
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Add the following to `config.js` 
 ```
 export const editor = "add-post-form";
@@ -79,7 +79,7 @@ import { clear as clearEditor } from "./components/Editor";
 import { init as Posts } from "./components/Posts";
 
 // Import configs
-import { state } from "../state";
+import { state } from "./state";
 ```
 
 

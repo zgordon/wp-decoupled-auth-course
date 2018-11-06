@@ -35,7 +35,7 @@ There are several files we will work with
 
 ## To Do
 
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open the `src/index.js` in your editor
 - Import and log out `state` and `stateRender` from `src/state.js`
 - Import and log out getEl, createEl, removeEl, isRendered from `src/helpers.js`;

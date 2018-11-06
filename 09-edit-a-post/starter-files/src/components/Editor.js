@@ -46,41 +46,6 @@ export function render() {
 }
 
 /**
- * Loads the editor with the editorPost
- *
- * @exports
- */
-export function loadPost() {
-  // Get the token for an authorized request
-  const token = Cookies.get(state.token);
-
-  // Setup an authenticated request for posts
-  axios
-    .get(state.restUrl + "wp/v2/posts/" + state.editorPost, {
-      // Set context to edit to get raw post content for editing
-      params: {
-        context: "edit"
-      },
-      // Set headers for authenticated request
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token
-      }
-    })
-    .then(response => {
-      // Go back up to the edit form
-      window.scrollTo(0, 50);
-      // Set the value of the post title input field
-      getEl(editorTitle).value = response.data.title.raw;
-      // Set the value of the post content from the editor
-      const contentEditor = Quill.find(getEl(editorContent));
-      // Set the editor to receive the raw content for editing
-      contentEditor.root.innerHTML = response.data.content.raw;
-      // Make sure to bind the post to the save method
-    });
-}
-
-/**
  * Processes the saving or updating of the form
  *
  * @export
@@ -91,8 +56,6 @@ export function process(event) {
   const quillEditor = Quill.find(getEl(editorContent));
   // Setup post object to save with updated content
   const post = {
-    // Get the post id
-    id: state.editorPost,
     // Get the editor title
     title: getEl(editorTitle).value,
     // Get the editor content
@@ -110,11 +73,7 @@ export function process(event) {
     return;
   }
 
-  if (!state.editorPost) {
-    save(post);
-  } else {
-    update(post);
-  }
+  save(post);
 }
 
 /**

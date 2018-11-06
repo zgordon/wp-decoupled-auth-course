@@ -5,7 +5,7 @@ In this step we will add an "Edit" link to each post that loads that post in the
 ## To Do
 
 Step 1: Setup Up and the Config
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open the `state.js` file and add a value to property to state for `editorPost` with a default setting of null.  This will save the ID of any post currently being edited.
 
 

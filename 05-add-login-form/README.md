@@ -5,7 +5,7 @@ In this step we will add a login form to the site
 ## To Do
 
 Step 1: Setup the Config and index.html
-- Open the `starter-files` and run `npm init` and `npm start` to get things going
+- Open the `starter-files` and run `npm install` and `npm start` to get things going
 - Open the `config.js` file and add the following exports
 ```
 export const loginForm = "login-form";

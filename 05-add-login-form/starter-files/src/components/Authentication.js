@@ -9,7 +9,7 @@ import { init as Posts } from "./Posts.js";
 // Import configs
 import { state, setState } from "../state";
 import { getEl } from "../helpers.js";
-import { loginBtn, logoutBtn } from "../config";
+import { loginForm, logoutBtn } from "../config";
 
 /**
  * Kicks off the authentication process
@@ -20,9 +20,9 @@ export function init() {
   // Check cookie to see if already authenticated
   if (Cookies.get(state.token) === undefined) {
     // Run logout tasks since not authenticated
-    lougout();
+    logout();
     // Setup the login process
-    initLogin();
+    // initLogin();
   } else {
     // Run login tasks since authenticated
     login();
@@ -40,7 +40,7 @@ export function login() {
   // Set the loggedIn statis to true
   setState("loggedIn", true);
   // Toggle login/logout forms
-  getEl(loginBtn).classList.add("hidden");
+  // getEl(loginBtn).classList.add("hidden");
   getEl(logoutBtn).classList.remove("hidden");
   // Init and render posts
   Posts();
@@ -55,7 +55,7 @@ export function logout() {
   // Set the loggedIn statis to false
   setState("loggedIn", false);
   // Toggle login/logout forms
-  getEl(loginBtn).classList.remove("hidden");
+  // getEl(loginBtn).classList.remove("hidden");
   getEl(logoutBtn).classList.add("hidden");
   // Init and render posts
   Posts();
@@ -67,13 +67,8 @@ export function logout() {
  * @export function
  */
 export function initLogin() {
-  // Replace login button with a clone to remove event listeners
-  const prevLogin = getEl(loginBtn);
-  const newLogin = prevLogin.cloneNode(true);
-  prevLogin.parentNode.replaceChild(newLogin, prevLogin);
-
   // Setup event listener for login form
-  newLogin.addEventListener("click", event => {
+  getEl(loginForm).addEventListener("click", event => {
     // Prevent form submission
     event.preventDefault();
     // Let us know we're logging in
@@ -125,12 +120,9 @@ export function initLogin() {
  */
 export function initLogout() {
   // Replace logout button with a clone to remove event listeners
-  const prevLogout = getEl(logoutBtn);
-  const newLogout = prevLogout.cloneNode(true);
-  prevLogout.parentNode.replaceChild(newLogout, prevLogout);
 
   // Setup event listeners for logout form
-  newLogout.addEventListener("click", event => {
+  getEl(logoutBtn).addEventListener("click", event => {
     // Prevent logout form from submitting
     event.preventDefault();
     // Let us know we're logging out
