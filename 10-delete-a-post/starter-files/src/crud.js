@@ -81,36 +81,3 @@ export function update(post) {
       console.error(error);
     });
 }
-export function deletePost(post) {
-  // Confirm that user wants to delete post
-  const confirm = window.confirm(`Delete Post: "${post.title.rendered}"`);
-  // Get the token for making an authenticated request
-  const token = Cookies.get(state.token);
-
-  // If user confirms delete then proceed
-  if (true === confirm) {
-    // Setup the API request
-    axios({
-      // Set method to delete
-      method: "delete",
-      // Setup the URL for the post to delete
-      url: state.restUrl + "wp/v2/posts/" + post.id,
-      // Setup headers for authenticated request
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token
-      }
-    })
-      .then(response => {
-        // Clear the editor
-        clearEditor();
-        // Display delete notice
-        Notice("deleted");
-        // Load the updated list of posts
-        Posts();
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-}

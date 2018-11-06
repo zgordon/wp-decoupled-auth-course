@@ -8,6 +8,7 @@ import { init as Posts } from "./Posts.js";
 import { render as LoginForm } from "./LoginForm.js";
 import { render as LogoutForm } from "./LogoutForm.js";
 import { render as Editor } from "./Editor.js";
+import { render as Notice } from "./Notice.js";
 
 // Import configs
 import { state, setState } from "../state";
@@ -44,7 +45,7 @@ export function login() {
   setState("loggedIn", true);
   // Toggle login/logout forms
   removeEl(loginForm);
-  Notice("loggedin");
+  // Notice("loggedin");
   LogoutForm();
   // Load editor
   Editor();
@@ -62,7 +63,7 @@ export function logout() {
   setState("loggedIn", false);
   // Toggle login/logout forms
   removeEl(logoutForm);
-  Notice("loggedout");
+  // Notice("loggedout");
   LoginForm();
   // Init and render posts
   removeEl(editor);
